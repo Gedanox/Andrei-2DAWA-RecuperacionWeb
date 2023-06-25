@@ -1,0 +1,27 @@
+.newsletter{
+    background-color: var(--semi-white);
+}
+
+.subscribeform{
+    color: var(--semi-black);
+    background-color: var(--semi-white);
+    border-bottom: 1px solid var(--semi-black);
+    border-left: 1px solid var(--semi-black);
+    border-right: 1px solid var(--semi-black);
+    border-top: 1px solid var(--semi-white);
+}
+
+.subscribebutton {
+    color: var(--semi-white);
+    background-color: var(--semi-black);
+}
+
+.subscribebutton:hover{
+    border: 1px solid var(--semi-black);
+    background-color: var(--semi-white);
+    color: var(--semi-black);
+}
+
+.newslettertext{
+    color: var(--semi-black);
+}

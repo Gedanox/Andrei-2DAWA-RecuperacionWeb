@@ -1,0 +1,65 @@
+
+
+.glider-dots{
+    width: 100%;
+    justify-content: space-around !important;
+    margin-bottom: 20px;
+}
+
+.glider-dot{
+    border: 2px solid var(--semi-black);
+    background-color: transparent;
+    width: 20%;
+    height:150px;
+    border-radius: 3px;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+.glider-dot:first-child {
+    background-image: url("../images/conserv1.jpg");
+}
+
+.glider-dot:nth-child(2) {
+    background-image: url("../images/conserv2.jpg");
+}
+
+.glider-dot:nth-child(3) {
+    background-image: url("../images/conserv3.jpg");
+}
+
+.glider-dot.active{
+    border: 2px solid var(--first-main);
+}
+
+.glider-dot:hover{
+    border: 2px solid var(--first-main);
+}
+
+.glider-item{
+    display: flex;
+}
+
+@media screen and (max-width:1000px){
+
+    .glider-dot{
+        width: 33%;
+    }
+
+    .personpic, .persondescription{
+        flex: 1 1 100% !important;
+    }
+
+    .personpic{
+        height: 400px;
+    }
+
+    .personpic1{
+        width: 100%;
+    }
+
+    .glider-item{
+        flex-flow: column nowrap;
+    }
+}

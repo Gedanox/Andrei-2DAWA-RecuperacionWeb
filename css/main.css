@@ -1,0 +1,1809 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+    font-family: "animal";
+    src: url('../fonts/Animal.otf') format('opentype');
+    font-style: normal;
+    font-weight: 700;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    --semi-black: #111111;
+    --semi-white: #f3f3f3;
+    --first-main: #A28B50;
+    --second-main: #81B57B;
+    --third-main: #AABB54;
+}
+
+
+html,
+body {
+    height: 100%;
+    font-family: Montserrat, sans-serif;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: var(--semi-white);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.defaultimg{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/****************************************************************************************************************************************** GLIDERJS **/
+
+.glider-contain {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.glider {
+    margin: 0 auto;
+    position: relative;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    transform: translateZ(0);
+    overflow: hidden;
+}
+
+.glider-track {
+    transform: translateZ(0);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    z-index: 1;
+}
+
+.glider.draggable {
+    user-select: none;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.glider.draggable .glider-slide img {
+    user-select: none;
+    pointer-events: none;
+}
+
+.glider.drag {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+.glider-slide {
+    user-select: none;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.glider-slide img {
+    max-width: 100%;
+}
+
+.glider::-webkit-scrollbar {
+    opacity: 0;
+    height: 0;
+}
+
+.glider-prev, .glider-next {
+    user-select: none;
+    position: absolute;
+    outline: none;
+    background: none;
+    padding: 0;
+    z-index: 2;
+    font-size: 40px;
+    text-decoration: none;
+    left: -23px;
+    border: 0;
+    top: 30%;
+    cursor: pointer;
+    color: #666;
+    opacity: 1;
+    line-height: 1;
+    transition: opacity .5s cubic-bezier(.17, .67, .83, .67),
+    color .5s cubic-bezier(.17, .67, .83, .67);
+}
+
+.glider-prev:hover,
+.glider-next:hover,
+.glider-prev:focus,
+.glider-next:focus {
+    color: #a89cc8;
+}
+
+.glider-next {
+    right: -23px;
+    left: auto;
+}
+
+.glider-next.disabled,
+.glider-prev.disabled {
+    opacity: .25;
+    color: #666;
+    cursor: default;
+}
+
+.glider-slide {
+    min-width: 150px;
+}
+
+.glider-hide {
+    opacity: 0;
+}
+
+.glider-dots {
+    user-select: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.glider-dot {
+    border: 0;
+    padding: 0;
+    user-select: none;
+    outline: none;
+    display: block;
+    cursor: pointer;
+    color: white;
+    border-radius: 50%;
+    background: white;
+    width: 10px;
+    height: 10px;
+    /* margin: 0 20px; */
+    z-index: 9999;
+}
+
+.glider-dot:hover,
+.glider-dot:focus,
+.glider-dot.active {
+    background: #DEBA37;
+}
+
+@media (max-width: 36em) {
+
+    .glider::-webkit-scrollbar {
+        opacity: 1;
+        -webkit-appearance: none;
+        width: 7px;
+        height: 3px;
+    }
+
+    .glider::-webkit-scrollbar-thumb {
+        opacity: 1;
+        border-radius: 99px;
+        background-color: rgba(156, 156, 156, 0.25);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .25);
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .glider-dots {
+        left: 5px;
+    }
+}
+
+*,
+*:before,
+*:after {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+/******************************************************************************************************************************************* GENERAL **/
+
+
+/**************************************************************************************************************** MENU **/
+
+.homehero {
+    width: 90%;
+    margin: auto;
+    position: relative;
+    top: 5vh;
+}
+
+.navbar>a, .nav>li>a, .mottotext, .brand{
+    color: var(--semi-white);
+    text-shadow: 1px 1px 1px var(--semi-black);
+}
+
+.logo {
+    height: 60px;
+    aspect-ratio: .5;
+    background-image: url(/images/madagascar7.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: drop-shadow(1px 1px 2px black);
+    margin-right: 1%;
+}
+
+.brand{
+    text-transform: uppercase;
+    font-family: 'Aboreto', cursive;
+    font-size: 3em;
+    margin-bottom: -5px;
+}
+
+.navbar{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar>a{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 40%;
+}
+
+.navmenu{
+    width: 55%;
+}
+
+.nav{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-family: 'Aboreto', cursive;
+    font-size: 1.6em;
+}
+
+.nav>li>a:hover{
+    color: var(--first-main);
+}
+
+/*==============================================================================
+ The burger icon with it's animation. Uses the checked property of a checkbox
+ in order to make the animation happen as well as control the next elements
+ I've used classes because of the + css selector, which will only ever animate
+ the next label element. Does not work on IE8 or below and opera mini since
+ they don't support the :checked selector.
+==============================================================================*/
+.burger-check {
+    display: none;
+}
+
+@media ( max-width: 1100px ){
+
+
+    .navbar{
+        align-items: flex-start;
+    }
+
+    .navbar>a{
+        width: 60%;
+    }
+
+    .burger {
+        position: relative;
+        float: right;
+        margin-right: 5%;
+        width: 40px !important;
+        height: 40px !important;
+        cursor: pointer;
+    }
+    .burger span,
+    .burger span:before,
+    .burger span:after {
+        position: absolute;
+        top: 18px;
+        width: 39px;
+        height: 4px;
+        background: var(--semi-white);
+        text-shadow: 1px 1px 1px black;
+        border-radius: 0.2em;
+    }
+
+    .burger span:before,
+    .burger span:after {
+        content: '';
+        left: 0;
+    }
+
+    .burger span:before {
+        top: -16px;
+    }
+
+    .burger span:after {
+        top: 16px;
+    }
+
+    .burger-check:checked + .burger:after {
+        content: '';
+    }
+
+    .burger-check:checked + .burger span {
+        height: 0;
+        width: 0;
+    }
+
+    .burger-check:checked + .burger span:before,
+    .burger-check:checked + .burger span:after {
+        width: 52px;
+        top: 6px;
+        margin-top: -4px;
+        margin-left: -8px;
+    }
+
+    .burger-check:checked + .burger span:before {
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .burger-check:checked + .burger span:after {
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    .navmenu {
+        position: relative;
+        float: right;
+        width: 55%;
+        margin: 0;
+        min-height: 50px;
+        overflow: hidden;
+    }
+
+    .navmenu ul {
+        position: relative;
+        float: right;
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navmenu ul a {
+        position: relative;
+        float: right;
+        width: 100%;
+        height: 0;
+        line-height: 50px;
+        padding: 0 15px;
+        text-decoration: none;
+        overflow: hidden;
+        color: var(--semi-white);
+        text-align: right;
+        margin-right: 5%;
+    }
+
+    .nav>li>a:hover{
+        text-decoration: none;
+        color: var(--first-main);
+    }
+
+    #burgermenu:checked ~ ul a {
+        height: 50px;
+    }
+
+    .nav>li>a:hover{
+        color:var(--first-main);
+    }
+
+    .nav{
+        flex-flow: column nowrap;
+    }
+
+    .nav>li{
+        margin-right: -18px;
+    }
+}
+
+/************************************************************************************************************** FOOTER **/
+
+.footer{
+    background-color: var(--semi-black);
+    color: var(--semi-white);
+    font-size: 20px;
+}
+
+.flexfooter{
+    padding-top: 120px;
+    padding-bottom: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+    max-width: 1344px;
+    margin: 0 auto;
+}
+
+.aboutus{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    height: auto;
+}
+
+.aboutus2{
+    margin-top: 30px;
+}
+
+.footlogo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: auto;
+    align-content: center;
+    align-items: center;
+}
+
+.links, .socials2{
+    flex: 1 1 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+}
+
+.logo2{
+    height: 80px;
+    width: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(/images/lemurblackbg.svg);
+    filter: drop-shadow(1px 1px 1px white);
+}
+
+.copyright{
+    max-width: 1344px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+.socials2>div>a, .copyright>div>a, .links>a{
+    color: var(--semi-white);
+}
+
+.socials2>div>a:hover, .copyright>div>a:hover, .links>a:hover{
+    transition: .3s ease-in-out;
+    color: var(--first-main);
+}
+
+.linkleader{
+    font-size: 2em;
+}
+
+.footerbrand{
+    width: 7em;
+}
+
+/****************************************************************************************************************************************** SPECIFIC **/
+
+/**************************************************************************************************************** HERO **/
+
+.bg-holder1 {
+    background-image: url(../images/hero1.jpg);
+}
+
+.bg-holder2 {
+    background-image: url(../images/hero2.jpg);
+}
+
+.bg-holder3 {
+    background-image: url(../images/hero3.jpg);
+}
+
+.bg-holder4 {
+    background-image: url(../images/hero4.jpg);
+}
+
+.bg-holder {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    width: 100%;
+}
+
+.bg-main {
+    height: 100vh;
+}
+
+.motto{
+    float: left;
+    position: absolute;
+    top: 20vh;
+}
+
+.a-header{
+    width: 30% !important;
+}
+
+.mottotext{
+    font-size: 4em;
+    font-family: 'Aboreto', cursive;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: var(--semi-white);
+    text-shadow: 1px 1px black;
+}
+
+.motto1{
+    letter-spacing: 4.2px;
+}
+
+.motto2{
+    letter-spacing: 2px;
+}
+
+.routebutton{
+    width: 300px;
+    height: 65px;
+    background-color: var(--semi-black);
+    text-shadow: 1px 1px 1px var(--semi-white);
+    border: 1px solid var(--semi-black);
+
+    position: absolute;
+    top: 70vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.routebutton:hover{
+    background-color: #222222;
+    transition: .3s ease-in-out;
+    border: 1px solid var(--semi-white)
+}
+
+.routebutton>p{
+    font-size: 1.5em;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: var(--semi-white);
+    text-shadow: 1px 1px black;
+}
+
+.arrow-right{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    background-image: url(../images/arrow2.svg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.sectionname{
+    font-family: 'Aboreto', cursive;
+    text-transform: uppercase;
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--semi-white);
+    text-shadow: 1px 1px black;
+    position: absolute;
+    top: 35vh;
+}
+
+/************************************************************************************************************* HISTORY **/
+
+.history{
+    max-width: 1536px;
+    margin: 7vw auto 7vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+}
+
+.homestory, .madaseasons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7vw;
+}
+
+.fossa, .madaseasonimgholder{
+    display: flex;
+    flex-flow: row wrap;
+    width: 47%;
+}
+
+.fossaimg, .madaseasonimg{
+    height: 80vh;
+    width: 100%;
+}
+
+.fossaimg {
+    background-image: url(../images/fossa.jpeg);
+}
+
+.fossatext{
+    font-size: 3em;
+    font-weight: bold;
+    padding-top: 50px;
+    padding-left: 50px;
+    font-family: 'Aboreto', cursive;
+    color: var(--semi-white);
+    text-transform: uppercase;
+}
+.fossatext>i{
+    font-style: italic;
+}
+
+.histitle, .madatitle{
+    font-size: 3em;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.histext, .madatext{
+    width: 47%;
+    margin-top: -30px;
+}
+
+.histext>.text, .madatext>.text{
+    text-align: justify !important;
+    font-size: 1.25em;
+
+}
+
+.smallstories{
+    display:flex;
+    flex-flow: column nowrap;
+}
+
+.smallstory{
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    max-width: 1536px;
+}
+
+.smallstory1, .smallstory3{
+    flex-direction: row-reverse;
+}
+
+.band{
+    height: 85px;
+    width: 120vw;
+    position: absolute;
+    z-index: 0;
+    padding-left: 2000px;
+    margin-left: -2000px;
+    padding-right: 2000px;
+    margin-right: -2000px;
+}
+
+.band1 {
+    background-color: var(--first-main);
+    background-image: url(../images/pattern1.png);
+}
+
+.band2 {
+    background-color: var(--second-main);
+    background-image: url(../images/pattern2.png);
+}
+
+.band3 {
+    background-color: var(--third-main);
+    background-image: url(../images/pattern3.png);
+}
+
+.smallstorypic{
+    margin-top: -30px;
+    flex: 1 1 37%;
+    max-width: 45%;
+    height: 533px;
+    position: relative;
+    z-index: 999 !important;
+}
+
+.storypic1 {
+    background-image: url(../images/history.jpg);
+}
+
+.storypic2 {
+    background-image: url(../images/fauna.jpg);
+}
+
+.storypic3 {
+    background-image: url(../images/flora.jpg);
+}
+
+.smallstorybody{
+    text-align: center;
+    font-size:  20px;
+    margin-top: 30px;
+    flex: 1 1 37%;
+    max-width: 45%;
+    z-index: 100;
+}
+
+.storytitle{
+    font-weight: normal;
+    font-size: 2em;
+    margin-top: -10px;
+}
+
+.storytext{
+    text-align: justify;
+    font-size: 20px;
+    margin-top: 10%;
+}
+
+.madaseasons{
+    margin-bottom: 0px;
+}
+
+.madaseasonimg {
+    background-image: url(../images/whentotravel.jpg);
+}
+
+/**************************************************************************************************************************************** NEWSLETTER **/
+
+.newsletter{
+    height: 85px;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    background-color: var(--semi-black);
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    gap: 0px;
+}
+
+.subscribe, .newslettertext{
+    flex: 1 1 50%;
+    min-width: 800px;
+}
+
+.subscribe{
+    text-align: right;
+}
+
+.newslettertext{
+    text-align: left;
+}
+
+.subscribeform{
+    font-family: Montserrat, sans-serif;
+    color: var(--semi-white);
+    background-color: var(--semi-black);
+    border-bottom: 1px solid var(--semi-white);
+    border-left: 1px solid var(--semi-white);
+    border-right: 1px solid var(--semi-white);
+    border-top: 1px solid var(--semi-black);
+    width: 700px;
+    outline: none;
+    padding-bottom:2px ;
+}
+
+.subscribebutton {
+    border: 0;
+    width: 100px;
+    color: var(--semi-black);
+    background-color: var(--semi-white);
+    text-transform: uppercase;
+    padding: 3px;
+    margin-left: -6px;
+    outline: none;
+}
+.subscribebutton:hover{
+    transition: all .3s ease-in-out;
+    border: 1px solid var(--semi-white);
+    background-color: var(--semi-black);
+    color: var(--semi-white);
+    outline: none;
+    cursor: pointer;
+}
+
+.newslettertext{
+    text-transform: uppercase;
+    color: var(--semi-white);
+    text-align: left;
+    padding-top: 14px;
+}
+
+.smalleter{
+    text-align: right;
+    font-size: 12px;
+    margin-right: 160px;
+}
+
+.terms{
+    color: dodgerblue;
+}
+
+
+/**************************************************************************************************************** TEAM **/
+
+
+
+.teamcontainer{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    max-width: 1536px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.person, .conservation{
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.personname{
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.personpic{
+    flex: 1 1 50%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.personpic1{
+    background-image: url(../images/person1.jpg);
+    width: 50%;
+}
+
+.personpic2{
+    background-image: url(../images/person2.jpg);
+}
+
+.personpic3{
+    background-image: url(../images/person3.jpg);
+}
+
+.person4{
+    flex: 1 1 auto;
+}
+
+.persondescription{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    font-size:  20px;
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+}
+
+.personx{
+    flex: 1 1 auto;
+}
+
+.personname{
+    flex: 1 1 10%;
+}
+
+.personbio{
+    text-align: justify;
+    margin-top: 100px;
+    flex: 1 1 60%;
+}
+
+.personbio2{
+    text-align: justify;
+    flex: 1 1 60%;
+}
+
+.teamtitle, .routetitle{
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+.personcontact{
+    flex: 1 1 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+.socials{
+    width: 25px;
+    height: 25px;
+}
+
+.socials:hover{
+    cursor: pointer;
+}
+
+.facebook{
+    background-image: url(../images/facebook.svg);
+}
+.instagram{
+    background-image: url(../images/instagram.svg);
+}
+.twitter{
+    background-image: url(../images/twitter.svg);
+}
+.tiktok{
+    background-image: url(../images/tiktok.svg);
+}
+
+.teamtitle{
+    margin: 50px 0;
+}
+
+.teampic{
+    background-image: url(../images/fullteam.jpg);
+    width: 100%;
+    aspect-ratio: 1.77;
+    flex: 1 1 auto;
+}
+
+/************************************************************************************************************* GALLERY **/
+
+.gallerysection{
+    max-width: 1536px;
+    margin: auto;
+}
+
+.gallerytitle{
+    font-size: 3em;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    padding: 50px 0;
+}
+
+.gallery{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 1vw;
+    padding: 1vw;
+    padding-bottom: 115px;
+    width: 100%;
+}
+
+.gallimg{
+    flex: 1 1 30%;
+    aspect-ratio: 1.588;
+    min-width: 400px;
+    padding-bottom: 25%;
+    box-sizing: border-box;
+}
+
+.gallimg1{
+    background-image: url(../images/gallery1.jpg);
+}
+
+.gallimg2{
+    background-image: url(../images/gallery2.jpg);
+}
+
+.gallimg3{
+    background-image: url(../images/gallery3.jpg);
+}
+
+.gallimg4{
+    background-image: url(../images/gallery4.jpg);
+}
+
+.gallimg5{
+    background-image: url(../images/gallery5.jpg);
+}
+
+.gallimg6{
+    background-image: url(../images/gallery6.jpg);
+}
+
+.gallimg7{
+    background-image: url(../images/gallery7.jpg);
+}
+
+.gallimg8{
+    background-image: url(../images/gallery8.jpg);
+}
+
+.gallimg9{
+    background-image: url(../images/gallery9.jpg);
+}
+
+.gallimg10{
+    background-image: url(../images/gallery10.jpg);
+}
+
+.gallimg11{
+    background-image: url(../images/gallery11.jpg);
+}
+
+.gallimg12{
+    background-image: url(../images/gallery12.jpg);
+}
+
+/************************************************************************************************************** ROUTES **/
+
+.routeintro{
+    max-width: 1536px;
+    margin: auto;
+}
+.routetitle{
+    text-align: center;
+    margin-top: 7vw;
+}
+
+.routebody{
+    margin-top: -80px;
+}
+
+.route-title{
+    margin: 0;
+    padding: 20px 0;
+    font-size: 2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.route-content{
+    width: 25%;
+    height: 100%;
+    color: white;
+    box-sizing: border-box;
+    padding: 40px;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    text-align: justify;
+    margin-left: 70px;
+}
+
+.route-content>p, .route-content>h4 {
+    width: 37%;
+    text-shadow: 1px 1px 1px black;
+    font-size: 1.25em;
+}
+
+.route-content>h4{
+    text-align: left;
+}
+
+.route-img{
+    height: 800px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.route-content h4 {
+    font-size: 2em;
+    margin: 40px 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.route-1{
+    background-image: url(../images/route1.jpg);
+}
+
+.route-2{
+    background-image: url(../images/route2.jpg);
+}
+
+.route-3{
+    background-image: url(../images/route3.jpg);
+}
+
+.routesbody{
+    flex: 1 1 auto;
+}
+
+/******************************************************************************************************** CONSERVATION **/
+
+.conservintro{
+    display: flex;
+    flex-direction: column;
+    max-width: 1536px;
+    margin: 7vw auto 7vw auto;
+}
+
+.conservationist{
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 7vw;
+}
+
+.conservationistpic{
+    flex: 1 1 60%;
+    height: 600px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-width: 800px;
+}
+
+.conservationistpic1{
+    background-image: url(../images/conservationist2.jpg);
+}
+
+.conservationistpic2{
+    background-image: url(../images/conservationist1.jpg);
+}
+
+.conservationistdesc{
+    text-align: center;
+    font-size: 20px;
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.conservbio{
+    text-align: justify;
+    flex: 1 1 100%;
+    margin: 20px;
+}
+
+.conserv2{
+    flex-flow: row-reverse;
+    flex-wrap: wrap;
+}
+
+.conservationpropic{
+    flex: 1 1 40%;
+    height: 600px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.conservname{
+    padding: 10px 0;
+}
+
+.conservationdesc{
+    text-align: center;
+    font-size: 20px;
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 3%;
+}
+
+.conservationpropic1{
+    background-image: url(../images/conserv1.jpg);
+}
+
+.conservationpropic2{
+    background-image: url(../images/conserv2.jpg);
+}
+
+.conservationpropic3{
+    background-image: url(../images/conserv3.jpg);
+}
+
+.conservname{
+    font-size: 1.6em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+
+
+/***************************************************************************************************************** MAP **/
+
+
+.maptitle{
+    margin-top: 7vh;
+    margin-bottom: 3vh;
+}
+
+.maptitle2{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.howtocome{
+    display: flex;
+    flex-direction: column;
+    max-width: 1536px;
+    margin: 0 auto;
+}
+
+.comingmethods{
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.comingpic{
+    background-image: url(../images/howtocome.jpg);
+    flex: 1 1 40%;
+    height: 600px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-width: 800px;
+}
+
+.comingdesc{
+    text-align: center;
+    font-size: 20px;
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.stayingoptions{
+    max-width: 1536px;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    justify-content: space-around;
+    gap: 2vh;
+}
+
+.stayingopt{
+    flex: 1 1 350px;
+    max-width: 350px;
+    min-width: 350px;
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.stayincontent, .stayingimg{
+    flex: 1 1 350px;
+    width: 350px !important;
+}
+
+.stayingcontent{
+    border: 1px solid black;
+    margin-top: -1px;
+}
+
+.stayingcontent>h4{
+    text-align: center;
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.stayingcontent>p{
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+.stayingimg{
+    width: 350px;
+    aspect-ratio: 1.4;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.stayingimg1{
+    background-image: url(../images/standart.jpg);
+}
+
+.stayingimg2{
+    background-image: url(../images/premium.jpg);
+}
+
+.stayingimg3{
+    background-image: url(../images/deluxe.jpg);
+}
+
+.sendbutton{
+    color: var(--semi-white);
+    background-color: var(--semi-black);
+}
+.sendbutton:hover{
+    color: var(--semi-black);
+    background-color: var(--semi-white);
+    border: 1px solid var(--semi-black);
+}
+
+/**************************************************************************************************************** FORM **/
+
+
+.subscribe2{
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 70%;
+}
+
+.subscribeform2{
+    font-family: Montserrat, sans-serif;
+    color: var(--semi-black);
+    background-color: var(--semi-white);
+    border-bottom: 1px solid var(--semi-black);
+    border-left: 1px solid var(--semi-black);
+    border-right: 1px solid var(--semi-black);
+    border-top: 1px solid var(--semi-white);
+    width: 70%;
+    outline: none;
+    padding-bottom:2px ;
+    margin-bottom: 40px;
+}
+
+.formmessage{
+    height: 70px;
+}
+
+.messageform{
+    height: auto;
+    max-width: 1536px;
+    margin: auto;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 20px;
+    gap: 0px;
+}
+
+.subscribebutton2 {
+    border: 0;
+    width: 100px;
+    color: var(--semi-white);
+    background-color: var(--semi-black);
+    text-transform: uppercase;
+    padding: 3px;
+    margin-left: -6px;
+    outline: none;
+}
+
+.newslettertext2{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 115px;
+}
+
+
+.subscribeform2{
+    width: 100%;
+}
+
+.smalleter2{
+    font-size: 12px;
+}
+
+.subscribebuttonhref{
+    margin-top: 20px
+}
+
+.smalleter>.checkbox{
+    margin-top: 25px;
+}
+
+
+/**************************************************************************************************************** HERO **/
+
+
+/********************************************************************************************************************************************** HOME **/
+@media screen and (max-width:1600px){
+
+    .newsletter{
+        height:auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .smallstorybody{
+        max-width: 55%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .histext, .madatext{
+        width: 53%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .smalleter, .smalleter2{
+        font-size: 12px;
+        margin-right: 0px;
+        text-align: center;
+    }
+
+    .newslettertext, .newslettertext2{
+        text-align: center;
+    }
+
+    .conservationpropic{
+        height: 800px;
+    }
+}
+
+@media screen and (max-width: 1500px){
+
+    .conservationistpic{
+        flex: 1 1 50%;
+    }
+
+    .conservbio{
+        margin: auto 8%;
+    }
+
+    .conservationpropic{
+        min-width: 600px;
+    }
+}
+
+@media screen and (max-width:1300px){
+
+    .nav{
+        font-size: 22px;
+    }
+
+    .mottotext{
+        font-size: 3.5em;
+    }
+
+    .homestory, .madaseasons{
+        flex-flow: column nowrap;
+    }
+
+    .fossa, .histext, .madaseasonimgholder, .madatext{
+        width: 100%;
+    }
+
+    .person, .conservation{
+        flex: 1 1 auto;
+    }
+
+    .copyright{
+        justify-content: space-around;
+    }
+
+    .routetitle{
+        margin-top: 50px;
+    }
+
+    .conservationist{
+        margin-top: 50px;
+        margin-bottom: 0px;
+    }
+
+    .conservationistdesc{
+        margin-top: 50px;
+    }
+
+    .conservname{
+        margin-bottom: 20px;
+    }
+
+    .comingdesc{
+        margin-top: 20px;
+    }
+
+    .conservationpropic{
+        min-width: 100%;
+        height: 400px;
+    }
+
+    .conservationdesc{
+        padding: 7vw 0 5vw 0;
+    }
+}
+
+@media screen and (max-width:1200px) {
+
+    .conservationpropic{
+        min-width: 900px;
+    }
+}
+
+@media screen and (max-width:1100px){
+
+
+    .motto{
+        margin-top: 50px;
+    }
+
+    .mottotext{
+        font-size: 3em;
+    }
+
+    .madatitle{
+        margin-top: 20px;
+    }
+
+    .person, .conservation{
+        flex: 1 1 auto;
+    }
+
+    .aboutus{
+        margin-left: 5%;
+        flex: 1 1 40%;
+    }
+
+    .copyright{
+        justify-content: space-around;
+    }
+
+    .routetitle{
+        margin-top: 50px;
+    }
+
+    .conservbio{
+        margin: 30px 100px 0px 100px;
+    }
+
+    .conservationist{
+        margin-top: 50px;
+        margin-bottom: 0px;
+    }
+
+    .conservationdesc{
+        margin-top: 20px;
+    }
+
+    .comingdesc{
+        margin-top: 20px;
+    }
+
+    .stayingopt{
+        flex: 1 1 45% !important;
+        max-width: 45% !important;
+        min-width: 45% !important;
+    }
+
+    .stayingimg{
+        width: 100% !important;
+    }
+
+    .conservationpropic{
+        min-width: 700px;
+    }
+}
+
+@media screen and (max-width:900px){
+
+    .menunormal{
+        display: none;
+    }
+
+    .brand1, .logo{
+        align-self: flex-start;
+    }
+
+    .persondescription{
+        flex: 1 1 100% !important;
+    }
+
+    .persondescription{
+        padding: 1% 5%;
+    }
+
+    .personbio{
+        margin-top: 0px;
+    }
+
+    .routesbody{
+        margin-top: 100px;
+        margin-bottom: 20px;
+    }
+
+    .conservationpropic{
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width:800px) {
+
+    .mottotext {
+        font-size: 5vw;
+    }
+
+    .homestory {
+        margin-top: 0px;
+    }
+
+    .band{
+        display: none;
+    }
+
+    .smallstory>.smallstorypic, .smallstory>.smallstorybody{
+        flex: 1 1 100% !important;
+        max-width: 100%;
+    }
+
+    .newsletter {
+        display: none;
+    }
+
+    .teamtitle {
+        text-align: center;
+    }
+
+    .personpic, .conservationpropic {
+        height: 400px;
+    }
+
+    .homestory{
+        margin: 100px 10%;
+    }
+
+
+    .personseparator1, .personseparator2 {
+        display: none;
+    }
+
+    .personseparator3 {
+        background-size: contain;
+    }
+
+    .person4, .flexfooter {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .aboutus2 {
+        text-align: center;
+    }
+
+    .conservbio {
+        margin: 5%;
+    }
+
+    .conservationistpic{
+        min-width: 100%;
+        height: 50vw;
+    }
+
+    .conservationpropic{
+        flex: 1 1 40%;
+        width: 40%;
+    }
+
+    .stayingoptions {
+        flex-flow: column wrap;
+        align-content: center;
+        align-items: center;
+    }
+
+    .stayingopt{
+        max-width: 80% !important;
+    }
+
+    .brand{
+        font-size: 2em;
+    }
+
+    .aboutus {
+        margin: auto;
+    }
+
+    .copyright{
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+}
+
+/**************************************************************************************************************** HERO **/
+/**************************************************************************************************************** HERO **/
+/**************************************************************************************************************** HERO **/
+/**************************************************************************************************************** HERO **/
+/**************************************************************************************************************** HERO **/
+
+
+/*******************************************************************************************************************************************************/

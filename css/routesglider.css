@@ -1,0 +1,81 @@
+.glider-dots::before {
+    content: "";
+    display: block;
+    height: 75%;
+    border-right: 2px solid var(--semi-white);
+    position: absolute;
+    right: calc(50% - 1px);
+
+}
+
+.glider-dot:hover, .glider-dot:focus, .glider-dot.active {
+    background: var(--first-main) !important;
+}
+
+.glider-dot{
+    border-radius: 0;
+    rotate: 45deg;
+    width: 20px;
+    height: 20px;
+}
+
+.glider-dots {
+    justify-content: space-around;
+    background-color: var(--semi-black);
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    bottom: 0;
+    flex-flow: column nowrap;
+    left:0px !important;
+}
+
+.route-content{
+    background-color: rgb(0, 0, 0, .5);
+    margin-left: 40px;
+}
+
+.route-content>*{
+    line-height: 30px !important;
+}
+
+@media (max-width: 1100px){
+
+    .route-content>*{
+        width: 50% !important;
+    }
+
+    .routitle1{
+        background-color: var(--first-main);
+    }
+
+    .routitle2{
+        background-color: var(--second-main);
+    }
+
+    .routitle3{
+        background-color: var(--third-main);
+    }
+
+}
+
+@media (max-width: 900px){
+
+    .route-content>*{
+        width: 90% !important;
+    }
+
+    .routitle1{
+        background-color: var(--first-main);
+    }
+
+    .routitle2{
+        background-color: var(--second-main);
+    }
+
+    .routitle3{
+        background-color: var(--third-main);
+    }
+
+}
